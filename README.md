@@ -28,3 +28,43 @@ cat FILENAME.js | openssl dgst -sha384 -binary | openssl base64 -A
 # or
 shasum -b -a 384 FILENAME.js | awk '{ print $1 }' | xxd -r -p | base64
 ```
+
+Example:
+
+```bash
+cat index.js | openssl dgst -sha384 -binary | openssl base64 -A
+# or
+shasum -b -a 384 index.js | awk '{ print $1 }' | xxd -r -p | base64
+```
+
+Either one produces:
+
+```bash
+mc+57kVPc2nLSfBkZP6/Tzfg3b97kV4hURJayWLnMvz6Zf6wZB1ar/KE5ELrxrrH
+```
+
+Which would then become this:
+
+```bash
+sha384-mc+57kVPc2nLSfBkZP6/Tzfg3b97kV4hURJayWLnMvz6Zf6wZB1ar/KE5ELrxrrH
+```
+
+And then finally in the HTML:
+
+```html
+<script
+  src="https://cdn.jsdelivr.net/gh/hchiam/learning-sri@master/index.js"
+  integrity="sha384-mc+57kVPc2nLSfBkZP6/Tzfg3b97kV4hURJayWLnMvz6Zf6wZB1ar/KE5ELrxrrH"
+  crossorigin="anonymous"
+></script>
+```
+
+Which would prevent this:
+
+```html
+<script
+  src="https://cdn.jsdelivr.net/gh/hchiam/learning-sri@master/index-with-modifications.js"
+  integrity="sha384-mc+57kVPc2nLSfBkZP6/Tzfg3b97kV4hURJayWLnMvz6Zf6wZB1ar/KE5ELrxrrH"
+  crossorigin="anonymous"
+></script>
+```
