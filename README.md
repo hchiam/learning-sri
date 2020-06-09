@@ -68,3 +68,9 @@ Which would prevent this:
   crossorigin="anonymous"
 ></script>
 ```
+
+## Try it out
+
+```bash
+open page.html
+```
