@@ -72,5 +72,7 @@ Which would prevent this:
 ## Try it out
 
 ```bash
-open page.html
+open test/index.html
 ```
+
+Or go to <https://learning-sri.surge.sh>
