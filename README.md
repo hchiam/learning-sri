@@ -8,3 +8,11 @@ Make sure that JS from a CDN didn't get hacked or have malicious code injected i
 
 - <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity>
 - <https://www.smashingmagazine.com/2019/04/understanding-subresource-integrity/>
+
+## How to set it up
+
+```bash
+cat FILENAME.js | openssl dgst -sha384 -binary | openssl base64 -A
+# or
+shasum -b -a 384 FILENAME.js | awk '{ print $1 }' | xxd -r -p | base64
+```
