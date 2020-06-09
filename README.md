@@ -14,6 +14,8 @@ Example:
 ></script>
 ```
 
+Make sure to include _**both**_ `integrity` and [`crossorigin` too](https://shubhamjain.co/til/subresource-integrity-crossorigin).
+
 ## References
 
 - <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity>
