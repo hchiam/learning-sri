@@ -4,6 +4,16 @@ Just one of the things I'm learning. <https://github.com/hchiam/learning>
 
 Make sure that JS from a CDN didn't get hacked or have malicious code injected into it by comparing the code to a hash before running it.
 
+Example:
+
+```html
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+  crossorigin="anonymous"
+></script>
+```
+
 ## References
 
 - <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity>
