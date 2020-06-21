@@ -24,29 +24,23 @@ Make sure to include _**both**_ `integrity` and [`crossorigin` too](https://shub
 ## How to set it up
 
 ```bash
-cat FILENAME.js | openssl dgst -sha384 -binary | openssl base64 -A
+echo sha384-$(cat FILENAME.js | openssl dgst -sha384 -binary | openssl base64 -A)
 # or
-shasum -b -a 384 FILENAME.js | awk '{ print $1 }' | xxd -r -p | base64
+echo sha384-$(shasum -b -a 384 FILENAME.js | awk '{ print $1 }' | xxd -r -p | base64)
 ```
 
 Example:
 
 ```bash
-cat index.js | openssl dgst -sha384 -binary | openssl base64 -A
+echo sha384-$(cat index.js | openssl dgst -sha384 -binary | openssl base64 -A)
 # or
-shasum -b -a 384 index.js | awk '{ print $1 }' | xxd -r -p | base64
+echo sha384-$(shasum -b -a 384 index.js | awk '{ print $1 }' | xxd -r -p | base64)
 ```
 
-Either one produces:
+Either one produces this:
 
 ```bash
-mc+57kVPc2nLSfBkZP6/Tzfg3b97kV4hURJayWLnMvz6Zf6wZB1ar/KE5ELrxrrH
-```
-
-Which would then become this:
-
-```bash
-sha384-mc+57kVPc2nLSfBkZP6/Tzfg3b97kV4hURJayWLnMvz6Zf6wZB1ar/KE5ELrxrrH
+sha384-A+/1ZBMjbXckmm7EutG5R0nYiAfre+/UZncsGfxQXSpiNIC+gCLZcHfECAkIXMN2
 ```
 
 And then finally in the HTML:
@@ -54,7 +48,7 @@ And then finally in the HTML:
 ```html
 <script
   src="https://cdn.jsdelivr.net/gh/hchiam/learning-sri@master/index.js"
-  integrity="sha384-mc+57kVPc2nLSfBkZP6/Tzfg3b97kV4hURJayWLnMvz6Zf6wZB1ar/KE5ELrxrrH"
+  integrity="sha384-A+/1ZBMjbXckmm7EutG5R0nYiAfre+/UZncsGfxQXSpiNIC+gCLZcHfECAkIXMN2"
   crossorigin="anonymous"
 ></script>
 ```
@@ -64,7 +58,7 @@ Which would prevent this:
 ```html
 <script
   src="https://cdn.jsdelivr.net/gh/hchiam/learning-sri@master/index-with-modifications.js"
-  integrity="sha384-mc+57kVPc2nLSfBkZP6/Tzfg3b97kV4hURJayWLnMvz6Zf6wZB1ar/KE5ELrxrrH"
+  integrity="sha384-A+/1ZBMjbXckmm7EutG5R0nYiAfre+/UZncsGfxQXSpiNIC+gCLZcHfECAkIXMN2"
   crossorigin="anonymous"
 ></script>
 ```
