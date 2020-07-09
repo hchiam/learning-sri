@@ -43,7 +43,7 @@ Either one produces this:
 sha384-A+/1ZBMjbXckmm7EutG5R0nYiAfre+/UZncsGfxQXSpiNIC+gCLZcHfECAkIXMN2
 ```
 
-You can also get this by simply running `bash get-integrity.sh`
+You can also get this by simply running [`bash get-integrity.sh`](https://github.com/hchiam/learning-sri/blob/master/get-integrity.sh)
 
 And then finally in the HTML:
 
