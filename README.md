@@ -43,6 +43,8 @@ Either one produces this:
 sha384-A+/1ZBMjbXckmm7EutG5R0nYiAfre+/UZncsGfxQXSpiNIC+gCLZcHfECAkIXMN2
 ```
 
+You can also get this by simply running `bash get-integrity.sh`
+
 And then finally in the HTML:
 
 ```html
